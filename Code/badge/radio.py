@@ -15,6 +15,6 @@ def send_packet(dest: int, data: bytes) -> None:
     if selected_app is None:
         raise AttributeError("no app is currently selected; cannot retrieve app_number.")
     app_number = selected_app.app_number
-    if any([p.app_number == app_number for p in internal_os.radio._transmit_queue]):
-        raise RuntimeError(f"App {selected_app.display_name} already has a packet in the transmit queue. Please wait until it is sent before sending another packet. (See get_send_queue_size())")
+    # if any([p.app_number == app_number for p in internal_os.radio._transmit_queue]):
+    #     raise RuntimeError(f"App {selected_app.display_name} already has a packet in the transmit queue. Please wait until it is sent before sending another packet. (See get_send_queue_size())")
     internal_os.radio.add_to_tx_queue(dest, app_number, data)

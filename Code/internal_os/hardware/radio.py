@@ -149,7 +149,7 @@ class BadgeRadio:
         """
         current_time = time.ticks_ms()
         elapsed_time = time.ticks_diff(current_time, self.last_tx_time)
-        ms_per_packet = 1500
+        ms_per_packet = 0 # remove limit
         return max(0, (ms_per_packet - elapsed_time) / 1000.0)
     
     def add_to_tx_queue(self, dest: int, app_number: int, data: bytes):
